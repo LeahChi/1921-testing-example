@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gcc code.c -o factorial
+gcc code.c -o factorial #compiling the file thats to be ran
 
 echo -e "~~ Testing Factorials ~~"
 
