@@ -1,12 +1,20 @@
 #!/bin/bash
 
 gcc code.c -o factorial #compiling the file thats to be ran
-
-echo -e "~~ Testing Factorials ~~"
+# echo <- displays line of text
+# -n <- NOT a new line, carry on on the same one
+# grep <- searches for a specific pattern in files/input
+# -q <- makes grep quiet, doesn't output the lines that match the pattern
+# cat <- displays the contents of the tmp file (debugging purposes)
+echo -e "~~ Testing Factorials ~~" 
 
 echo -n "Testing not-a-number - "
 
 echo "no" | ./factorial > tmp
+# echo send the string "no" to the factorial program
+# '|' redirects the output of echo ("no") to the input of ./factorial
+# ./factorial executes the compiles program
+# tmp redirects the output of the program to a file names tmp <- but why is this needed?
 
 if grep -q "Error: No number entered" tmp;
 then
@@ -28,6 +36,7 @@ fi
 echo -n "Testing really big - "
 echo "100" | ./factorial > tmp
 if grep -q "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000" tmp;
+# above is 10! - so just checking to see if the program can handle big numbers
 then
     echo "PASS"
 else
